@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PWA pour la gestion de devis et factures">
+    <meta name="theme-color" content="#3498db">
+    <title>Devis & Factures</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="images/icon-192.png">
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📄 Devis & Factures</h1>
+            <div class="header-actions">
+                <button id="addBtn" class="btn btn-primary">+ Nouveau</button>
+                <button id="installBtn" class="btn btn-secondary" style="display:none;">Installer</button>
+            </div>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="list">Liste</button>
+            <button class="tab-btn" data-tab="stats">Statistiques</button>
+            <button class="tab-btn" data-tab="settings">Paramètres</button>
+        </nav>
+
+        <!-- Onglet Liste -->
+        <section id="list" class="tab-content active">
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Rechercher...">
+                <select id="filterType">
+                    <option value="">Tous</option>
+                    <option value="devis">Devis</option>
+                    <option value="facture">Factures</option>
+                </select>
+            </div>
+            <div id="documentsList" class="documents-list"></div>
+        </section>
+
+        <!-- Onglet Statistiques -->
+        <section id="stats" class="tab-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Devis en attente</h3>
+                    <p id="statDevisAttente">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Factures impayées</h3>
+                    <p id="statFacturesImpayees">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>CA Total</h3>
+                    <p id="statCATotal">0€</p>
+                </div>
+                <div class="stat-card">
+                    <h3>CA Réalisé</h3>
+                    <p id="statCARealise">0€</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Onglet Paramètres -->
+        <section id="settings" class="tab-content">
+            <div class="settings-section">
+                <h3>Mes Informations</h3>
+                <form id="settingsForm">
+                    <input type="text" id="companyName" placeholder="Nom entreprise" required>
+                    <input type="email" id="companyEmail" placeholder="Email">
+                    <input type="tel" id="companyPhone" placeholder="Téléphone">
+                    <input type="text" id="companyAddress" placeholder="Adresse">
+                    <input type="text" id="companySIREN" placeholder="SIREN/SIRET">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                </form>
+            </div>
+            <div class="settings-section">
+                <h3>Données</h3>
+                <button id="exportBtn" class="btn btn-secondary">Exporter données</button>
+                <button id="importBtn" class="btn btn-secondary">Importer données</button>
+                <button id="clearBtn" class="btn btn-danger">Effacer tout</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Édition/Création -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Nouveau Document</h2>
+            <form id="documentForm">
+                <div class="form-group">
+                    <label>Type</label>
+                    <select id="docType" required>
+                        <option value="devis">Devis</option>
+                        <option value="facture">Facture</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Client</label>
+                    <input type="text" id="clientName" placeholder="Nom du client" required>
+                    <input type="email" id="clientEmail" placeholder="Email client">
+                    <input type="tel" id="clientPhone" placeholder="Téléphone">
+                </div>
+
+                <div class="form-group">
+                    <label>Adresse</label>
+                    <input type="text" id="clientAddress" placeholder="Adresse">
+                </div>
+
+                <div class="form-group">
+                    <label>Articles/Services</label>
+                    <div id="itemsList"></div>
+                    <button type="button" id="addItemBtn" class="btn btn-secondary">+ Article</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea id="notes" placeholder="Notes ou conditions..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Statut</label>
+                    <select id="status">
+                        <option value="brouillon">Brouillon</option>
+                        <option value="envoyé">Envoyé</option>
+                        <option value="accepté">Accepté</option>
+                        <option value="facturé">Facturé</option>
+                        <option value="payé">Payé</option>
+                    </select>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" id="generatePdfBtn" class="btn btn-secondary">Générer PDF</button>
+                    <button type="button" class="btn btn-danger" id="deleteBtn" style="display:none;">Supprimer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/pdf-generator.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+</html>
