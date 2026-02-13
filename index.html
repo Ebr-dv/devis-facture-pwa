@@ -358,4 +358,702 @@
             
             <div class="nav-menu dropdown" id="settingsDropdown">
                 <button class="btn-icon" onclick="app.ui.toggleDropdown('settingsDropdown')" title="Menu">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoi
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </button>
+                <div class="dropdown-content">
+                    <div class="dropdown-item" onclick="app.ui.openModal('settingsModal')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        Paramètres
+                    </div>
+                    <div class="dropdown-item" onclick="app.data.export()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Sauvegarder
+                    </div>
+                    <div class="dropdown-item" onclick="document.getElementById('importFile').click()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                        Importer
+                    </div>
+                    <div style="height:1px; background:var(--border-light); margin: 4px 8px;"></div>
+                    <div class="dropdown-item danger" onclick="app.security.lock()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        Verrouiller
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SIDEBAR: CATALOG -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="input-group">
+                    <input type="text" id="searchInput" class="input-field" placeholder="🔍 Rechercher produit...">
+                </div>
+                <div class="flex gap-2 mb-2">
+                    <select id="catSelect" class="input-field" style="padding: 0.5rem;">
+                        <option value="all">Toutes catégories</option>
+                    </select>
+                    <button class="btn btn-icon" id="filterFav" title="Favoris uniquement">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </button>
+                </div>
+                <button class="btn btn-secondary w-full text-sm" onclick="app.ui.openModal('productModal')">
+                    + Ajouter Article
+                </button>
+            </div>
+            <div class="sidebar-content" id="productList">
+                <!-- Product Items rendered here -->
+            </div>
+        </aside>
+
+        <!-- EDITOR: INVOICE -->
+        <section class="editor">
+            <div class="paper">
+                <!-- Toolbar -->
+                <div class="flex justify-between items-center mb-4 editor-actions no-print">
+                    <div class="flex gap-2 flex-wrap">
+                        <button class="btn btn-secondary" onclick="app.doc.toggleType()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><path d="M2 12h20"></path></svg>
+                            <span id="btnTypeText">Devis ⇄ Facture</span>
+                        </button>
+                        <button class="btn btn-primary" onclick="window.print()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                            Imprimer / PDF
+                        </button>
+                        <button class="btn btn-success" id="btnWhatsapp" onclick="app.utils.shareWA()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            WhatsApp
+                        </button>
+                    </div>
+                    <div class="text-right">
+                        <div id="docTypeDisplay" class="doc-title" style="cursor:pointer" onclick="app.doc.toggleType()">DEVIS</div>
+                        <div class="doc-number" id="docNumberDisplay">N° ----</div>
+                        <p class="text-muted text-sm" id="docDateDisplay">Date: --/--/----</p>
+                    </div>
+                </div>
+
+                       <!-- Inputs (Paper Style) -->
+                <div class="mb-4" style="min-height: 60px;">
+                    <div class="input-group" style="width: 100%;">
+                        <!-- CORRECTION: Utilisation de textarea au lieu de input pour permettre les retours à la ligne à l'impression -->
+                        <textarea id="docTitleInput" class="paper-input" rows="1" placeholder="Titre du document (ex: Installation Électrique)" style="font-weight: 600; font-size: 1.15rem; color: var(--primary); height: auto; overflow: hidden; resize: none;"></textarea>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 mb-4" style="page-break-inside: avoid;">
+                    <div class="w-full">
+                        <div class="input-label">Émetteur</div>
+                        <textarea id="senderInfo" class="paper-input" rows="3" placeholder="Votre Nom / Entreprise&#10;Adresse&#10;SIRET / Contact"></textarea>
+                    </div>
+                    <div class="w-full">
+                        <div class="input-label">Destinataire</div>
+                        <textarea id="clientInfo" class="paper-input" rows="3" placeholder="Nom du Client&#10;Adresse du chantier&#10;Référence"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Table -->
+                <table class="doc-table">
+                    <thead>
+                        <tr>
+                            <th width="38%" style="text-align:left">Désignation</th>
+                            <th width="10%" style="text-align:center">Unité</th>
+                            <th width="15%" style="text-align:right">Prix Unit.</th>
+                            <th width="12%" style="text-align:center">Qté</th>
+                            <th width="20%" style="text-align:right">Total HT</th>
+                            <th width="5%" class="col-action no-print"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="docLines">
+                        <!-- Lines rendered here -->
+                    </tbody>
+                </table>
+
+                <!-- Totals -->
+                <div class="doc-totals">
+                    <div class="total-row"><span>Total HT:</span><span id="totalHT">0.00</span></div>
+                    <!-- MODIFICATION: Main d'oeuvre au lieu de TVA -->
+                    <div class="total-row">
+                        <span>Main d'oeuvre:</span>
+                        <input type="number" id="inputLabor" class="input-field input-sm paper-input" style="text-align: right;" value="0" step="10" onchange="app.doc.updateLabor(this.value)">
+                    </div>
+                    <div class="total-row final"><span>Net TTC:</span><span id="totalTTC">0.00</span></div>
+    </div>
+
+                <!-- Footer Notes -->
+                <div class="mt-4" style="margin-top: 50px;">
+                    <div class="input-label no-print">Notes / Conditions</div>
+                    <textarea id="docNotes" class="paper-input" rows="2" placeholder="Ex: Paiement à 30 jours, acompte de 20% à la commande..."></textarea>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL: SETTINGS -->
+    <div class="modal-overlay" id="settingsModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span>Paramètres</span>
+                <button class="btn-icon" onclick="app.ui.closeModal('settingsModal')">✕</button>
+            </div>
+            <div class="input-group">
+                <label class="input-label">Devise</label>
+                <select id="settingCurrency" class="input-field">
+                    <option value="EUR">Euro (€)</option>
+                    <option value="XOF">FCFA (CFA)</option>
+                    <option value="USD">Dollar ($)</option>
+                </select>
+            </div>
+            <!-- MODIFICATION: Label TVA remplacé par Main d'oeuvre -->
+            <div class="input-group">
+                <label class="input-label">Main d'oeuvre par défaut (Montant)</label>
+                <input type="number" id="settingLabor" class="input-field" value="0">
+            </div>
+            <div class="input-group">
+                <label class="input-label">Thème</label>
+                <select id="settingTheme" class="input-field">
+                    <option value="light">Clair</option>
+                    <option value="dark">Sombre</option>
+                </select>
+            </div>
+            <hr style="margin: 1.5rem 0; border:0; border-top:1px solid var(--border-light)">
+            <div class="input-group">
+                <label class="input-label">Mot de passe</label>
+                <input type="password" id="settingPassword" class="input-field" placeholder="Nouveau mot de passe">
+                <p class="text-muted text-xs mt-4">Laissez vide pour ne pas changer.</p>
+            </div>
+            <div class="flex justify-between mt-4">
+                <button class="btn btn-secondary" onclick="app.ui.closeModal('settingsModal')">Fermer</button>
+                <button class="btn btn-primary" onclick="app.saveSettings()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL: ADD PRODUCT -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <div class="modal-header">
+                <span>Ajouter / Modifier Produit</span>
+                <button class="btn-icon" onclick="app.ui.closeModal('productModal')">✕</button>
+            </div>
+            <input type="hidden" id="prodId">
+            <div class="input-group"><label class="input-label">Nom du produit</label><input type="text" id="prodName" class="input-field" placeholder="Ex: Prise 2P+T"></div>
+            <div class="flex gap-4">
+                <div class="w-full">
+                    <div class="input-group"><label class="input-label">Prix HT</label><input type="number" id="prodPrice" class="input-field" step="0.01"></div>
+                </div>
+                <div class="w-full">
+                    <div class="input-group"><label class="input-label">Unité</label><input type="text" id="prodUnit" class="input-field" placeholder="ex: pce, m"></div>
+                </div>
+            </div>
+            <div class="flex gap-4">
+                 <div class="w-full">
+                    <div class="input-group"><label class="input-label">Catégorie</label><input type="text" id="prodCat" class="input-field" list="catList"><datalist id="catList"></datalist></div>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 mb-4">
+                <input type="checkbox" id="prodFav">
+                <label for="prodFav" class="text-sm">Ajouter aux favoris</label>
+            </div>
+            <div class="flex justify-between">
+                <button class="btn btn-secondary" onclick="app.ui.closeModal('productModal')">Annuler</button>
+                <button class="btn btn-primary" onclick="app.saveProduct()">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL: LOCK SCREEN -->
+    <div class="modal-overlay open" id="lockModal">
+        <div class="modal">
+            <div style="font-size: 3rem; margin-bottom: 1rem; color: var(--primary);">🔒</div>
+            <h2 class="mb-4">Application Verrouillée</h2>
+            <p class="text-muted text-sm mb-4">Entrez votre mot de passe pour accéder à EbR Smart Home.</p>
+            <input type="password" id="unlockPassword" class="input-field" placeholder="Mot de passe" style="margin-bottom: 1rem; text-align: center;">
+            <button class="btn btn-primary w-full" onclick="app.security.unlock()">Déverrouiller</button>
+        </div>
+    </div>
+
+    <!-- HIDDEN INPUTS -->
+    <input type="file" id="importFile" class="hidden" accept=".json">
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+       // --- 1. SEED DATA ---
+        const SEED_CATALOG = [
+            { id: '1', name: 'Câble RO2V 3G2.5mm²', price: 85000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '2', name: 'Câble RO2V 3G1.5mm²', price: 60000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '3', name: 'Fil TH 1.5mm² rouge', price: 14000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '4', name: 'Fil TH 2.5mm² rouge', price: 23000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '5', name: 'Câble VGV 3G1.5mm²', price: 52000, category: 'Câblage', unit: 'm', favorite: true },
+            { id: '6', name: 'Câble U1000 R2V 3G2.5mm²', price: 1200, category: 'Câblage', unit: 'm', favorite: false },
+            { id: '7', name: 'Gaine annelée ICTA N20', price: 400, category: 'Câblage', unit: 'm', favorite: true },
+            { id: '8', name: 'Coffret 72 modules (4x18)', price: 65000, category: 'Coffret', unit: 'pce', favorite: false },
+            { id: '9', name: 'Prise 2P+T 16A Blanc', price: 2500, category: 'Appareillage', unit: 'pce', favorite: true },
+            { id: '10', name: 'Interrupteur Unipolaire', price: 900, category: 'Appareillage', unit: 'pce', favorite: false },
+            { id: '11', name: 'Va-et-vient', price: 1100, category: 'Appareillage', unit: 'pce', favorite: false },
+            { id: '12', name: 'Prise étanche extérieure IP55', price: 3500, category: 'Appareillage', unit: 'pce', favorite: false },
+            { id: '13', name: 'Disjoncteur 10A (C10)', price: 800, category: 'Protection', unit: 'pce', favorite: true },
+            { id: '14', name: 'Disjoncteur 20A (C20)', price: 850, category: 'Protection', unit: 'pce', favorite: true },
+            { id: '15', name: 'Disjoncteur DPN 16A', price: 4500, category: 'Protection', unit: 'pce', favorite: true },
+            { id: '16', name: 'Inter Diff. 30mA Type A 40A', price: 45000, category: 'Protection', unit: 'pce', favorite: true },
+            { id: '17', name: 'Coffret Étanche IP55 4 modules', price: 3500, category: 'Coffret', unit: 'pce', favorite: false },
+            { id: '18', name: 'Coffret PVC 13 modules', price: 2800, category: 'Coffret', unit: 'pce', favorite: false },
+            { id: '19', name: 'Tube LED T8 60cm 18W', price: 3500, category: 'Eclairage', unit: 'pce', favorite: false },
+            { id: '20', name: 'Spot LED Encastrable 5W Blanc', price: 2500, category: 'Eclairage', unit: 'pce', favorite: false },
+            { id: '21', name: 'Piquet de terre cuivre 1.5m', price: 10000, category: 'Mise à la terre', unit: 'pce', favorite: true },
+            { id: '22', name: 'Boîte d’encastrement simple', price: 300, category: 'Accessoires', unit: 'pce', favorite: true },
+            { id: '23', name: 'Tube orange N° 11', price: 17000, category: 'Réservation Technique', unit: 'rouleau', favorite: true },
+            { id: '24', name: 'Tube orange N° 13', price: 23000, category: 'Réservation Technique', unit: 'rouleau', favorite: true },
+            { id: '25', name: 'Tube orange N° 16', price: 27000, category: 'Réservatin Technique', unit: 'rouleau', favorite: true },
+            { id: '26', name: 'Interrupteur Différentiel 3P+N 63A 30mA', price: 45000, category: 'Protection', unit: 'pce', favorite: true },
+            { id: '27', name: 'Câble U1000 R2V 3G1.5mm²', price: 800, category: 'Câblage', unit: 'm', favorite: false },
+            { id: '28', name: 'Fil TH 1.5mm² bleu', price: 14000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '29', name: 'Fil TH 1.5mm² jaune/vert', price: 14000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '30', name: 'Fil TH 1.5mm² noire', price: 14000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '31', name: 'Fil TH 1.5mm² marron', price: 14000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '32', name: 'Fil TH 2.5mm² bleu', price: 23000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '33', name: 'Fil TH 2.5mm² jaune/vert', price: 23000, category: 'Câblage', unit: 'rouleau', favorite: true },
+            { id: '34', name: 'Boite de dérivation 294x152x70 EC360C7', price: 6000, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '35', name: 'Boite de dérivation 392x152x70 EC360C8', price: 12000, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '36', name: 'Boite de dérivation 160x152x70 EC360C6', price: 3500, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '37', name: 'Boite étanche LAP 100x100 (7410)', price: 2500, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '38', name: 'Boite étanche LAP 180x140x80 (7418)', price: 4000, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '39', name: 'Boite étanche LAP 240x180x85 (7424)', price: 6000, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '40', name: 'Boite étanche LAP 240x180x85 (7618)', price: 6000, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '41', name: 'Domino Legrand 10mm²', price: 13500, category: 'Raccordement', unit: 'paquet', favorite: true },
+            { id: '42', name: 'Domino Legrand 16mm²', price: 15000, category: 'Raccordement', unit: 'paquet', favorite: true },
+            { id: '43', name: 'Domino Legrand 25mm²', price: 22500, category: 'Raccordement', unit: 'paquet', favorite: true },
+            { id: '44', name: 'Bornier LT35', price: 1500, category: 'Raccordement', unit: 'barre', favorite: true },
+            { id: '45', name: 'Bornier LT70', price: 2500, category: 'Raccordement', unit: 'barre', favorite: true },
+            { id: '46', name: 'Fil TH 6mm² rouge', price: 650, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '47', name: 'Fil TH 6mm² bleu', price: 650, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '48', name: 'Fil TH 6mm² jaune/vert', price: 650, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '49', name: 'Fil TH 10mm² rouge', price: 1200, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '50', name: 'Fil TH 10mm² bleu', price: 1200, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '51', name: 'Fil TH 10mm² jaune/vert', price: 1200, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '52', name: 'Fil TH 16mm² rouge', price: 1500, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '53', name: 'Fil TH 16mm² bleu', price: 1500, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '54', name: 'Fil TH 16mm² jaune/vert', price: 1500, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '55', name: 'Fil TH 25mm² rouge', price: 2500, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '56', name: 'Fil TH 25mm² bleu', price: 2500, category: 'Alimentation', unit: 'm', favorite: true },
+            { id: '57', name: 'Boitier encastrement carré', price: 350, category: 'Accessesoires', unit: 'pce', favorite: true },
+            { id: '58', name: 'Fil TH 25mm² jaune/vert', price: 2500, category: 'Alimentation', unit: 'm', favorite: true }
+            ];
+
+        // --- 2. UTILS ---
+        const Utils = {
+            uid: () => '_' + Math.random().toString(36).substr(2, 9),
+            today: () => new Date().toISOString().split('T')[0],
+            formatMoney: (amount, currency) => {
+                return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: currency }).format(amount);
+            },
+            hash: async (str) => {
+                const msgBuffer = new TextEncoder().encode(str);
+                const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            },
+            // Helper pour auto-resize textarea
+            autoResize: (el) => {
+                el.style.height = 'auto';
+                el.style.height = el.scrollHeight + 'px';
+            }
+        };
+
+        // --- 3. CORE APP ---
+        const app = {
+            state: {
+                // MODIFICATION: 'taxRate' remplacé par 'defaultLabor'
+                settings: { currency: 'XOF', defaultLabor: 0, theme: 'light', passwordHash: null },
+                doc: { type: 'Devis', number: '', date: Utils.today(), sender: '', client: '', notes: '', title: '', items: [], laborCost: 0 },
+                counters: { Devis: {}, Facture: {} },
+                products: [],
+                isOnline: navigator.onLine
+            },
+            
+            init: async () => {
+                await app.data.load();
+                app.ui.applyTheme();
+                app.ui.initListeners();
+                app.render();
+                
+                // Auto-resize du titre au chargement
+                const titleInput = document.getElementById('docTitleInput');
+                if(titleInput) Utils.autoResize(titleInput);
+
+                if(app.state.settings.passwordHash) {
+                    app.security.lock();
+                } else {
+                    document.getElementById('lockModal').classList.remove('open');
+                }
+                app.ui.updateOnlineStatus(navigator.onLine);
+                
+                // Listeners de connexion
+                window.addEventListener('online', () => app.ui.updateOnlineStatus(true));
+                window.addEventListener('offline', () => app.ui.updateOnlineStatus(false));
+            },
+            
+            data: {
+                KEY: 'EbRSmartHome_DB_Pro',
+                save: () => { localStorage.setItem(app.data.KEY, JSON.stringify(app.state)); },
+                load: async () => {
+                    const raw = localStorage.getItem(app.data.KEY);
+                    if (raw) {
+                        app.state = JSON.parse(raw);
+                        if(!app.state.counters) app.state.counters = { Devis: {}, Facture: {} };
+                        if(!app.state.settings.defaultLabor) app.state.settings.defaultLabor = 0; // Migration
+                        if(!app.state.doc.laborCost && app.state.doc.laborCost !== 0) app.state.doc.laborCost = 0; // Migration
+                        
+                        app.state.doc.items.forEach(i => { if(!i.unit) i.unit = 'pce'; if(!i.price) i.price = 0; });
+                    } else {
+                        app.state.products = SEED_CATALOG;
+                        app.state.doc.sender = "EbR Smart Home\nVotre Adresse\nTél: +33 6 00 00 00 00";
+                        app.state.doc.laborCost = 0;
+                    }
+                },
+                export: () => {
+                    const blob = new Blob([JSON.stringify(app.state)], {type: "application/json"});
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `EbR_Backup_${Utils.today()}.json`;
+                    a.click();
+                    app.ui.toast("Base de données exportée", "success");
+                },
+                import: (file) => {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        try {
+                            const data = JSON.parse(e.target.result);
+                            if(data.products) {
+                                app.state = data;
+                                // Ensure migration if importing old data
+                                if(!app.state.settings.defaultLabor && app.state.settings.defaultLabor !== 0) app.state.settings.defaultLabor = 0;
+                                if(!app.state.doc.laborCost && app.state.doc.laborCost !== 0) app.state.doc.laborCost = 0;
+                                
+                                app.data.save();
+                                location.reload();
+                            } else { throw new Error("Format invalide"); }
+                        } catch(err) { app.ui.toast("Erreur import", "error"); }
+                    };
+                    reader.readAsText(file);
+                }
+            },
+
+            ui: {
+                applyTheme: () => {
+                    document.body.setAttribute('data-theme', app.state.settings.theme);
+                    document.getElementById('settingTheme').value = app.state.settings.theme;
+                    document.getElementById('settingCurrency').value = app.state.settings.currency;
+                    // MODIFICATION: Load default labor into settings input
+                    document.getElementById('settingLabor').value = app.state.settings.defaultLabor;
+                },
+                updateOnlineStatus: (isOnline) => {
+                    app.state.isOnline = isOnline;
+                    const dot = document.getElementById('statusDot');
+                    const btnWA = document.getElementById('btnWhatsapp');
+                    
+                    if(isOnline) {
+                        dot.classList.add('online');
+                        dot.title = "En ligne";
+                        if(btnWA) { btnWA.disabled = false; btnWA.title = "Partager sur WhatsApp"; }
+                    } else {
+                        dot.classList.remove('online');
+                        dot.title = "Hors ligne";
+                        if(btnWA) { 
+                            btnWA.disabled = true; 
+                            btnWA.style.opacity = "0.5";
+                            btnWA.title = "Indisponible (Hors ligne)"; 
+                        }
+                    }
+                },
+                toggleDropdown: (id) => {
+                    const el = document.getElementById(id);
+                    el.classList.toggle('active');
+                    const close = (e) => { if(!el.contains(e.target)) { el.classList.remove('active'); document.removeEventListener('click', close); }};
+                    setTimeout(() => document.addEventListener('click', close), 0);
+                },
+                toggleSidebar: () => {
+                    const sidebar = document.getElementById('sidebar');
+                    sidebar.classList.toggle('collapsed');
+                },
+                openModal: (id) => document.getElementById(id).classList.add('open'),
+                closeModal: (id) => document.getElementById(id).classList.remove('open'),
+                toast: (msg, type='success') => {
+                    const c = document.getElementById('toastContainer');
+                    const t = document.createElement('div');
+                    t.className = `toast ${type}`;
+                    t.innerHTML = `<span>${msg}</span>`;
+                    c.appendChild(t);
+                    setTimeout(() => t.remove(), 3000);
+                },
+                initListeners: () => {
+                    ['senderInfo', 'clientInfo', 'docNotes'].forEach(id => {
+                        document.getElementById(id).addEventListener('input', (e) => {
+                            const field = id === 'senderInfo' ? 'sender' : (id === 'clientInfo' ? 'client' : 'notes');
+                            app.state.doc[field] = e.target.value;
+                            app.data.save();
+                            // Auto resize pour les textareas
+                            Utils.autoResize(e.target);
+                        });
+                    });
+
+                // Listener spécial pour le titre (Textarea maintenant)
+                    const titleInput = document.getElementById('docTitleInput');
+                    titleInput.addEventListener('input', (e) => {
+                        app.state.doc.title = e.target.value;
+                        app.data.save();
+                        Utils.autoResize(e.target);
+                    });
+
+                    document.getElementById('importFile').addEventListener('change', (e) => {
+                        if(e.target.files.length) app.data.import(e.target.files[0]);
+                    });
+                    document.getElementById('searchInput').addEventListener('input', (e) => {
+                        app.state.filterSearch = e.target.value.toLowerCase();
+                        app.renderProducts();
+                    });
+                    document.getElementById('catSelect').addEventListener('change', (e) => {
+                        app.state.filterCat = e.target.value;
+                        app.renderProducts();
+                    });
+                    document.getElementById('filterFav').addEventListener('click', (e) => {
+                        app.state.filterFav = !app.state.filterFav;
+                        e.currentTarget.classList.toggle('text-primary'); 
+                        e.currentTarget.classList.toggle('text-muted');
+                        app.renderProducts();
+                    });
+                }
+            },
+
+            doc: {
+                new: () => {
+                    if(confirm("Créer un nouveau document ? Le actuel sera réinitialisé.")) {
+                        app.state.doc.items = [];
+                        app.state.doc.number = ''; 
+                        app.state.doc.date = Utils.today();
+                        app.state.doc.client = '';
+                        app.state.doc.title = '';
+                        // MODIFICATION: Reset labor cost to default
+                        app.state.doc.laborCost = parseFloat(app.state.settings.defaultLabor) || 0;
+                        
+                        document.getElementById('clientInfo').value = '';
+                        document.getElementById('docTitleInput').value = '';
+                        app.render();
+                        app.ui.toast("Nouveau document créé");
+                    }
+                },
+                add: (productId) => {
+                    const p = app.state.products.find(x => x.id === productId);
+                    if(!p) return;
+                    const existing = app.state.doc.items.find(i => i.id === productId);
+                    if(existing) {
+                        existing.qty++;
+                    } else {
+                        app.state.doc.items.push({ id: p.id, name: p.name, price: p.price, unit: p.unit || 'pce', qty: 1 });
+                    }
+                    app.render();
+                    app.data.save();
+                },
+                remove: (index) => {
+                    app.state.doc.items.splice(index, 1);
+                    app.render();
+                    app.data.save();
+                },
+                updateQty: (index, val) => {
+                    const q = parseInt(val);
+                    if(q > 0) app.state.doc.items[index].qty = q;
+                    app.render();
+                    app.data.save();
+                },
+                updatePrice: (index, val) => {
+                    const p = parseFloat(val);
+                    if(!isNaN(p) && p >= 0) app.state.doc.items[index].price = p;
+                    app.render();
+                    app.data.save();
+                },
+                // MODIFICATION: Fonction pour mettre à jour la main d'oeuvre
+                updateLabor: (val) => {
+                    const cost = parseFloat(val);
+                    if(!isNaN(cost) && cost >= 0) {
+                        app.state.doc.laborCost = cost;
+                        app.render();
+                        app.data.save();
+                    }
+                },
+                toggleType: () => {
+                    app.state.doc.type = app.state.doc.type === 'Devis' ? 'Facture' : 'Devis';
+                    app.doc.generateNumber();
+                    app.render();
+                    app.data.save();
+                },
+                generateNumber: () => {
+                    const type = app.state.doc.type;
+                    const year = new Date().getFullYear();
+                    if(!app.state.counters[type][year]) app.state.counters[type][year] = 0;
+                    app.state.counters[type][year]++;
+                    const n = String(app.state.counters[type][year]).padStart(4, '0');
+                    app.state.doc.number = `${type.substring(0,3).toUpperCase()}-${year}-${n}`;
+                }
+            },
+
+            render: () => {
+                if(!app.state.doc.number) app.doc.generateNumber();
+                const typeDisplay = app.state.doc.type.toUpperCase();
+                document.getElementById('docTypeDisplay').textContent = typeDisplay;
+                document.getElementById('btnTypeText').textContent = `Transformer en ${typeDisplay === 'DEVIS' ? 'Facture' : 'Devis'}`;
+                document.getElementById('docNumberDisplay').textContent = `N° ${app.state.doc.number}`;
+                document.getElementById('docDateDisplay').textContent = `Date: ${app.state.doc.date}`;
+
+                // Inputs
+                    if(document.getElementById('senderInfo').value !== app.state.doc.sender) 
+                    document.getElementById('senderInfo').value = app.state.doc.sender;
+                if(document.getElementById('docNotes').value !== app.state.doc.notes)
+                    document.getElementById('docNotes').value = app.state.doc.notes;
+                if(document.getElementById('docTitleInput').value !== app.state.doc.title)
+                    document.getElementById('docTitleInput').value = app.state.doc.title;
+
+                // Auto resize après chargement des valeurs
+                ['senderInfo', 'clientInfo', 'docNotes', 'docTitleInput'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if(el) Utils.autoResize(el);
+                });
+
+                // Table
+                const tbody = document.getElementById('docLines');
+                tbody.innerHTML = '';
+                let totalHT = 0;
+                app.state.doc.items.forEach((item, idx) => {
+                    const lineTotal = item.price * item.qty;
+                    totalHT += lineTotal;
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><div class="font-bold text-sm">${item.name}</div></td>
+                        <td style="text-align:center"><span class="text-sm text-muted">${item.unit || 'pce'}</span></td>
+                        <td>
+                            <input type="number" min="0" step="0.01" value="${item.price}" class="input-field input-sm paper-input" style="text-align: right;" onchange="app.doc.updatePrice(${idx}, this.value)">
+                        </td>
+                        <td style="text-align:center">
+                            <input type="number" min="1" value="${item.qty}" class="input-field input-xs paper-input" style="text-align: center;" onchange="app.doc.updateQty(${idx}, this.value)">
+                        </td>
+                        <td style="text-align:right"><span class="font-bold">${Utils.formatMoney(lineTotal, app.state.settings.currency)}</span></td>
+                        <td class="col-action">
+                            <button class="btn-icon text-danger" onclick="app.doc.remove(${idx})" title="Supprimer">✕</button>
+                        </td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+
+                // Totals
+                // MODIFICATION: Calcul avec Main d'oeuvre au lieu de TVA
+                const laborCost = parseFloat(app.state.doc.laborCost) || 0;
+                const ttc = totalHT + laborCost;
+                
+                document.getElementById('totalHT').textContent = Utils.formatMoney(totalHT, app.state.settings.currency);
+                
+                // Synchroniser l'input visuel avec la valeur réelle
+                const inputLabor = document.getElementById('inputLabor');
+                if (document.activeElement !== inputLabor) {
+                    inputLabor.value = laborCost;
+                }
+                
+                document.getElementById('totalTTC').textContent = Utils.formatMoney(ttc, app.state.settings.currency);
+
+                app.renderProducts();
+            },
+
+            renderProducts: () => {
+                const list = document.getElementById('productList');
+                const search = app.state.filterSearch || '';
+                const cat = app.state.filterCat || 'all';
+                const favOnly = app.state.filterFav || false;
+
+                const cats = [...new Set(app.state.products.map(p => p.category))].sort();
+                const select = document.getElementById('catSelect');
+                while(select.options.length > 1) select.remove(1); 
+                cats.forEach(c => {
+                    const opt = document.createElement('option');
+                    opt.value = c; opt.textContent = c;
+                    select.appendChild(opt);
+                });
+                select.value = cat;
+                const dl = document.getElementById('catList');
+                dl.innerHTML = '';
+                cats.forEach(c => { const o=document.createElement('option'); o.value=c; dl.appendChild(o); });
+
+                const filtered = app.state.products.filter(p => {
+                    return p.name.toLowerCase().includes(search) && 
+                           (cat === 'all' || p.category === cat) && 
+                           (!favOnly || p.favorite);
+                });
+
+            saveProduct: () => {
+                const name = document.getElementById('prodName').value;
+                const price = parseFloat(document.getElementById('prodPrice').value);
+                const unit = document.getElementById('prodUnit').value || 'pce';
+                const cat = document.getElementById('prodCat').value;
+                const fav = document.getElementById('prodFav').checked;
+                if(!name || isNaN(price)) { app.ui.toast("Nom, Prix et Unité requis", "error"); return; }
+                app.state.products.push({ id: Utils.uid(), name, price, unit, category: cat||'Divers', favorite: fav });
+                app.data.save();
+                app.render();
+                app.ui.closeModal('productModal');
+                document.getElementById('prodName').value = '';
+                document.getElementById('prodPrice').value = '';
+                document.getElementById('prodUnit').value = '';
+                app.ui.toast("Produit ajouté", "success");
+            },
+
+            saveSettings: async () => {
+                const pass = document.getElementById('settingPassword').value;
+                if(pass) { app.state.settings.passwordHash = await Utils.hash(pass); }
+                app.state.settings.currency = document.getElementById('settingCurrency').value;
+                // MODIFICATION: Sauvegarde de la main d'oeuvre par défaut
+                app.state.settings.defaultLabor = parseFloat(document.getElementById('settingLabor').value) || 0;
+                app.state.settings.theme = document.getElementById('settingTheme').value;
+                app.ui.applyTheme();
+                app.render();
+                app.data.save();
+                app.ui.closeModal('settingsModal');
+                document.getElementById('settingPassword').value = '';
+                app.ui.toast("Paramètres enregistrés");
+            },
+            
+            security: {
+                lock: () => {
+                    document.getElementById('lockModal').classList.add('open');
+                    document.getElementById('unlockPassword').value = '';
+                },
+                unlock: async () => {
+                    const input = document.getElementById('unlockPassword').value;
+                    if(!app.state.settings.passwordHash) { app.ui.closeModal('lockModal'); return; }
+                    const hash = await Utils.hash(input);
+                    if(hash === app.state.settings.passwordHash) {
+                        app.ui.closeModal('lockModal');
+                        app.ui.toast("Bienvenue", "success");
+                    } else { app.ui.toast("Mot de passe incorrect", "error"); }
+                }
+            },
+
+            utils: {
+                shareWA: () => {
+                    if(!navigator.onLine) {
+                        app.ui.toast("Pas de connexion internet", "error");
+                        return;
+                    }
+                    const type = app.state.doc.type;
+                    const number = app.state.doc.number;
+                    const client = app.state.doc.client.split('\n')[0];
+                    const total = document.getElementById('totalTTC').textContent;
+                    const text = `*${type} EbR Smart Home N°${number}*\nClient: ${client}\nTotal: ${total}\n\nBonjour, voici le résumé. Le PDF détaillé suit.`;
+                    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+                    app.ui.toast("WhatsApp ouvert. Envoyez le PDF via Imprimer -> Enregistrer.", "warning");
+                }
+            }
+        };
+        
+        window.addEventListener('DOMContentLoaded', app.init);
+    </script>
+</body>
+</html>
